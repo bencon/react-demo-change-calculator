@@ -1,6 +1,7 @@
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+It is a simple react demo which calulates change owed based on a provided amount in USD, and formats the result in bills and coins rather than a single number.
 
 ## Available Scripts
 
