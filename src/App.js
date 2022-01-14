@@ -33,19 +33,32 @@ function Change(props) {
     allDenominations.push({denonimation: '$10 bill', quantity:billsTen});
     allDenominations.push({denonimation: '$5 bill', quantity:billsFive});
     allDenominations.push({denonimation: '$1 bill', quantity:billsOne});
-    allDenominations.push({denonimation: 'quarters', quantity:quarters});
-    allDenominations.push({denonimation: 'dimes', quantity:dimes});
-    allDenominations.push({denonimation: 'nickels', quantity:nickels});
-    allDenominations.push({denonimation: 'pennies', quantity:pennies});
+    allDenominations.push({denonimation: 'quarter', quantity:quarters});
+    allDenominations.push({denonimation: 'dime', quantity:dimes});
+    allDenominations.push({denonimation: 'nickel', quantity:nickels});
+    allDenominations.push({denonimation: 'penny', quantity:pennies});
+
+    const filteredDenominations = allDenominations.filter((item) => {
+        return item.quantity > 0;
+    }).map((item) => {
+        if (item.quantity > 1) {
+            if (item.denonimation === 'penny') {
+                item.denonimation = 'pennies';
+                return item;
+            }
+            item.denonimation = `${item.denonimation}s`;
+        }
+        return item;
+    });
 
     return (
         <React.Fragment>
             <ul>
                 {
-                    allDenominations.map(function(item, index){
+                    filteredDenominations.map(function(item, index){
                         return (
                             <li key={index}>
-                                {`${item.denonimation} : ${item.quantity}`}
+                                {`${item.quantity} ${item.denonimation}`}
                             </li>
                         );
                     })
