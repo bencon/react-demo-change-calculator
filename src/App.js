@@ -53,6 +53,9 @@ function Change(props) {
 
     return (
         <React.Fragment>
+            <br />
+            <br />
+            Change Returned:
             <ul>
                 {
                     filteredDenominations.map(function(item, index){
